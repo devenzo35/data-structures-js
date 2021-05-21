@@ -1,3 +1,6 @@
+// Stacks are equals to array in js but build this was good
+// to undertand how they could work behind the scenes :)
+
 // push, pop, peek, length
 
 const MyStack = function () {
