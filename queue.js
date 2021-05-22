@@ -1,4 +1,4 @@
-// has, add , values, size, remove, intersection, difference, union, subset
+// print, enqueue, dequeue, front, size, isEmpty
 
 function Queue() {
   const collection = [];
