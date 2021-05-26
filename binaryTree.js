@@ -1,8 +1,8 @@
 class Node {
-  constructor(data = null, right = null, left = null) {
+  constructor(data, right = null, left = null) {
     this.data = data;
-    this.right = right;
     this.left = left;
+    this.right = right;
   }
 }
 
@@ -11,13 +11,13 @@ class BinarySearchTree {
     this.root = null;
   }
 
-  add = (data) => {
-    let node = this.root;
+  add(data) {
+    const node = this.root;
 
     if (node === null) {
       this.root = new Node(data);
       return;
-    } else if (node !== null) {
+    } else {
       const searchTree = (node) => {
         if (data < node.data) {
           if (node.left === null) {
@@ -39,5 +39,34 @@ class BinarySearchTree {
       };
       return searchTree(node);
     }
+  }
+  findMin = () => {
+    let currentNode = this.root;
+
+    while (currentNode.left !== null) {
+      currentNode = currentNode.left;
+    }
+
+    return currentNode.data;
+  };
+
+  findMax = () => {
+    let currentNode = this.root;
+
+    while (currentNode.right !== null) {
+      currentNode = currentNode.right;
+    }
+
+    return currentNode.data;
   };
 }
+
+const binarySearch = new BinarySearchTree();
+
+binarySearch.add(1);
+binarySearch.add(1);
+binarySearch.add(5);
+binarySearch.add(3);
+binarySearch.add(7);
+binarySearch.add(2);
+console.log(binarySearch.findMin());
